@@ -1,0 +1,103 @@
+    1  ls
+    2  cd lib
+    3  cd ../libs
+    4  ls
+    5  ls
+    6  mkdir /usr/local/hadoop
+    7  ls /usr/local/
+    8  cd /
+    9  ls libs/src/
+   10  useradd hadoop -m
+   11  passwd hadoop
+   12  chown -R hadoop:hadoop /usr/local/hadoop
+   13  ls -ltr /usr/local/hadoop/
+   14  ls -ltr /usr/local/
+   15  ls
+   16  ls /usr/local/hadoop/
+   17  cp /libs/src/ /usr/local/hadoop/
+   18  cp -r /libs/src/ /usr/local/hadoop/
+   19  ls /usr/local/hadoop/
+   20  ls /usr/local/hadoop/src/
+   21  mv -r /usr/local/hadoop/src/ /usr/local/hadoop/
+   22  mv /usr/local/hadoop/src/ /usr/local/hadoop/
+   23  mv /usr/local/hadoop/src/ /usr/local/hadoop
+   24  ls /usr/local/
+   25  ls /usr/local/src/
+   26  mv /usr/local/hadoop/src/ /usr/local/hadoop1
+   27  ls /usr/local/
+   28  ls /usr/local/hadoop
+   29  ls /usr/local/hadoop1
+   30  rm /usr/local/hadoop
+   31  rm -rf /usr/local/hadoop
+   32  mv /usr/local/hadoop1 /usr/local/hadoop
+   33  ls /usr/local/
+   34  ls /usr/local/hadoop/
+   35  ls -ltr /usr/local/hadoop/
+   36  ls -ltr /usr/local/
+   37  chown -R hadoop:hadoop /usr/local/hadoop
+   38  ls -ltr /usr/local/
+   39  ls -ltr /usr/local/hadoop/
+   40  vi /etc/profile.d/hadoop.sh
+   41  ls libs
+   42  cat libs/hadoop
+   43  cat libs/hadoop.sh 
+   44  ls
+   45  cp libs/hadoop.sh /etc/profile.d/
+   46  ls /etc/profile.d/
+   47  cat /usr/local/hadoop/etc/hadoop/hadoop-env.sh
+   48  cat /usr/local/hadoop/etc/hadoop/hadoop-env.sh | grep JAVA
+   49  ls -lrt /bin/jav
+   50  java
+   51  java -version
+   52  apt update
+   53  apt upgrade
+   54  apt install default-jdk
+   55  java
+   56  ls /usr/lib/jvm/java-21-openjdk-amd64
+   57  vi
+   58  vim
+   59  nano
+   60  apt install vi
+   61  apt install vim
+   62  vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh [B
+   63  vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh 
+   64  vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh 
+   65  ls /usr/lib/jvm/java-21-openjdk-amd64
+   66  vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh 
+   67  cat 
+   68  cat /usr/local/hadoop/etc/hadoop/hadoop-env.sh | grep JAVA
+   69  su - hadoop
+   70  ping 
+   71  apt install ping 
+   72  apt install iputils-ping 
+   73  ping 
+   74  su - hadoop
+   75  ping hadoop1
+   76  exit 
+   77  passwd 
+   78  exit 
+   79  exit 
+   80  pwd
+   81  ls
+   82  apt install ssh-keygen
+   83  sudo apt install openssh-client
+   84  apt install openssh-client
+   85  su -
+   86  exit 
+   87  history
+   88  history | grep apt install
+   89  history | grep "apt install"
+   90  hadoop
+   91  su - hadoop
+   92  exit
+   93  echo $PATH
+   94  su - hadoop
+   95  exit
+   96  history | grep "apt install"
+   97  whoami
+   98  whoami -a
+   99  whoami --help
+  100  uname -m
+  101  uname
+  102  uname -a
+  103  history >> /libs/messages_history.txt
