@@ -1,2 +1,3 @@
-libs/default-jdk_1.21-76_amd64.deb
 hadoop-*.tar.gz
+keys/
+*.log

@@ -1,42 +1,42 @@
 x-common-config: &common-config
-  image: debian:stable-slim
-  volumes:
-    - ./libs:/libs
   build:
     dockerfile: ./Dockerfile
+  image: hadoop-node:latest
 
 services:
   master:
-    container_name: haddop1_master
-    hostname: haddop1
+    <<: *common-config
+    container_name: hadoop1_master
+    hostname: hadoop1
     networks:
       hadoop-network:
         ipv4_address: 172.20.0.10
     ports:
       - "9870:9870"
       - "8020:8020"
-    image: debian:stable-slim
-    volumes:
-      - ./libs/hadoop:/usr/local/hadoop
-      - ./libs:/libs:ro
-    command: sleep infinity
-
+      - "8088:8088"
+      - "9864:9864"
+      - "19888:19888"
+    
   slave1:
     <<: *common-config
-    container_name: haddop2_slave1
-    hostname: haddop2
+    container_name: hadoop2_slave1
+    hostname: hadoop2
     networks:
       hadoop-network:
         ipv4_address: 172.20.0.11
-    
+    ports:
+      - "9865:9864"
 
-  # slave2:
-  #   <<: *common-config
-  #   container_name: haddop3_slave2
-  #   hostname: haddop3
-  #   networks:
-  #     hadoop-network:
-  #       ipv4_address: 172.20.0.12
+  slave2:
+    <<: *common-config
+    container_name: hadoop3_slave2
+    hostname: hadoop3
+    networks:
+      hadoop-network:
+        ipv4_address: 172.20.0.12
+    ports:
+      - "9866:9864"
 
 networks:
   hadoop-network:
