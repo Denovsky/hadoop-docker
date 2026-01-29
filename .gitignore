@@ -1,3 +1,4 @@
 hadoop-*.tar.gz
 keys/
+libs/
 *.log

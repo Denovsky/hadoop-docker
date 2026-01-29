@@ -2,6 +2,8 @@ x-common-config: &common-config
   build:
     dockerfile: ./Dockerfile
   image: hadoop-node:latest
+  volumes:
+    - ./configs:/configs
 
 services:
   master:

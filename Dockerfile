@@ -12,18 +12,10 @@ RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64' >> /usr/local/had
 RUN useradd -m -s /bin/bash hadoop 2>/dev/null || true && \
     echo "hadoop:hadoop" | chpasswd
 
-RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_HOME=/usr/local/hadoop' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_INSTALL=$HADOOP_HOME' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_MAPRED_HOME=$HADOOP_HOME' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_COMMON_HOME=$HADOOP_HOME' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_HDFS_HOME=$HADOOP_HOME' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_YARN_HOME=$HADOOP_HOME' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native' >> /home/hadoop/.bashrc && \
-    echo 'export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin' >> /home/hadoop/.bashrc && \
-    echo 'export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"' >> /home/hadoop/.bashrc
+COPY ./configs/.bashrc /home/hadoop/.bashrc.temp
+RUN cat /home/hadoop/.bashrc.temp >> /home/hadoop/.bashrc
 
-COPY ./libs/etc/profile.d/hadoop.sh /etc/profile.d/hadoop.sh
+COPY ./configs/hadoop.sh /etc/profile.d/hadoop.sh
 
 RUN mkdir -p /home/hadoop/hadoopdata/hdfs/datanode
 
