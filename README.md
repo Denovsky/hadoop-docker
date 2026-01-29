@@ -14,9 +14,10 @@ docker compose up -d</br>
 ./stop.sh</br>
 docker compose down
 
+
+Если все же требуется разбить запуск для разных устройств, то требуется разделить master и slave ноды на разные docker-compose файлы, а также отредактировать /etc/hosts, конфиги в hadoop и ssh комуникацию в Dockerfile.
+
 ToDo:
 
 - Разобраться с WebUI (загрузка файлов. RPC работает)
 - Разбить docker-compose на DataNode и NameNode запуски с присваением ip
-
-Если все же требуется разбить запуск для разных устройств, то требуется разделить master и slave ноды на разные docker-compose файлы, а также отредактировать /etc/host, конфиги в hadoop и ssh комуникацию в Dockerfile.
