@@ -12,6 +12,7 @@ mkdir ./libs/hadoop
 tar -zxf hadoop-3.4.2.tar.gz -C ./libs/hadoop --strip-components 1
 mkdir keys
 ssh-keygen -t rsa -b 4096 -f keys/id_rsa_hadoop -N "" -C "hadoop@docker"
+sudo chmod 644 keys/id_rsa_hadoop
 
 cp ./configs/core-site.xml ./libs/hadoop/etc/hadoop/core-site.xml
 cp ./configs/hdfs-site.xml ./libs/hadoop/etc/hadoop/hdfs-site.xml

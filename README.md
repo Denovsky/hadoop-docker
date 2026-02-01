@@ -21,3 +21,5 @@ ToDo:
 
 - Разобраться с WebUI (загрузка файлов. RPC работает)
 - Разбить docker-compose на DataNode и NameNode запуски с присваением ip
+- Добавить разделение скриптов на master и slave в Dockerfile
+- Добавить сохранение при docker compose down

@@ -1,19 +1,18 @@
 FROM debian:stable-slim
 
-USER root
-
 COPY ./libs/hadoop /usr/local/hadoop
 
 RUN apt update && apt upgrade -y && \
     apt install -y default-jdk openssh-client openssh-server sshpass
 
 RUN echo 'export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64' >> /usr/local/hadoop/etc/hadoop/hadoop-env.sh
-    
+
 RUN useradd -m -s /bin/bash hadoop 2>/dev/null || true && \
-    echo "hadoop:hadoop" | chpasswd
+    echo "hadoop:hadoop" | chpasswd && \
+    echo "root:root" | chpasswd
 
 COPY ./configs/.bashrc /home/hadoop/.bashrc.temp
-RUN cat /home/hadoop/.bashrc.temp >> /home/hadoop/.bashrc
+RUN cat /home/hadoop/.bashrc.temp >> /home/hadoop/.bashrc && rm -rf /home/hadoop/.bashrc.temp 
 
 COPY ./configs/hadoop.sh /etc/profile.d/hadoop.sh
 
@@ -50,6 +49,14 @@ RUN echo "hadoop2" >> /usr/local/hadoop/etc/hadoop/workers && \
 
 RUN chown -R hadoop:hadoop /usr/local/hadoop
 RUN chown -R hadoop:hadoop /home/hadoop/
+
+# COPY entrypoint.sh /entrypoint.sh
+# COPY start-master.sh /start-master.sh
+# COPY start-slave.sh /start-slave.sh
+
+# RUN chmod +x /entrypoint.sh /start-*.sh
+
+# ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 22
 EXPOSE 9870
