@@ -2,7 +2,7 @@ x-common-config: &common-config
   build:
     context: .
     dockerfile: Dockerfile
-  image: hadoop-node:latest
+  image: hadoop-node:2.0.0
   volumes:
     - ./configs:/configs
 
@@ -21,7 +21,7 @@ services:
       - "9864:9864"
       - "19888:19888"
     volumes:
-      - ./labs:/labs
+      - ./labs:/home/hadoop/labs
     environment:
       - SERVICE_NAME=master
     
@@ -37,17 +37,17 @@ services:
     environment:
       - SERVICE_NAME=slave
 
-  slave2:
-    <<: *common-config
-    container_name: hadoop3_slave2
-    hostname: hadoop3
-    networks:
-      hadoop-network:
-        ipv4_address: 172.20.0.12
-    ports:
-      - "9866:9864"
-    environment:
-      - SERVICE_NAME=slave
+  # slave2:
+  #   <<: *common-config
+  #   container_name: hadoop3_slave2
+  #   hostname: hadoop3
+  #   networks:
+  #     hadoop-network:
+  #       ipv4_address: 172.20.0.12
+  #   ports:
+  #     - "9866:9864"
+  #   environment:
+  #     - SERVICE_NAME=slave
 
 networks:
   hadoop-network:

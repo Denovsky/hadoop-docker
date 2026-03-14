@@ -44,8 +44,9 @@ RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config && \
     echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config && \
     echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 
-RUN echo "hadoop2" >> /usr/local/hadoop/etc/hadoop/workers && \
-    echo "hadoop3" >> /usr/local/hadoop/etc/hadoop/workers
+RUN echo "hadoop1" >> /usr/local/hadoop/etc/hadoop/workers && \
+    echo "hadoop2" >> /usr/local/hadoop/etc/hadoop/workers
+    # echo "hadoop3" >> /usr/local/hadoop/etc/hadoop/workers
 
 RUN chown -R hadoop:hadoop /usr/local/hadoop
 RUN chown -R hadoop:hadoop /home/hadoop/
